@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\loginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +22,21 @@ Route::get('/', function () {
 
 Route::get('/homepage', function () {
     return view('homepage');
+});
+
+//jadwal page
+Route::get('/jadwal', function () {
+    return view('jadwal');
+});
+
+//route page
+Route::controller(PageController::class)->group(function () {
+    // Route::get('/login', 'login');
+});
+
+//route logincontroller
+Route::controller(loginController::class)->group(function () {
+    Route::get('/login', 'login');
+    Route::post('/login', 'authenticate');
+    Route::get('/logout', 'logout');
 });
