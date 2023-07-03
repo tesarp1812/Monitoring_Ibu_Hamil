@@ -10,6 +10,38 @@ class Biodata extends Model
     use HasFactory;
 
     /**
+     * comments
+     *
+     * @return void
+     */
+    public function subjektif()
+    {
+        return $this->hasOne(Subjektif::class);
+    }
+
+    /**
+     * comments
+     *
+     * @return void
+     */
+    public function objektif()
+    {
+        return $this->hasOne(Objektif::class);
+    }
+
+    /**
+     * comments
+     *
+     * @return void
+     */
+    public function checkup()
+    {
+        return $this->hasMany(Checkup::class);
+    }
+
+
+
+    /**
      * fillable
      *
      * @var array

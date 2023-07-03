@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\SubjektifController;
+use App\Http\Controllers\ObjektifController;
+use App\Http\Controllers\CheckupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,20 +39,43 @@ Route::controller(PageController::class)->group(function () {
 });
 
 //route logincontroller
-// Route::controller(loginController::class)->group(function () {
-//     Route::get('/login', 'login');
-//     Route::post('/login', 'authenticate');
-//     Route::get('/logout', 'logout');
-// });
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'login');
+    Route::post('/login', 'authenticate');
+    Route::get('/logout', 'logout');
+});
 
-Route::get('/cek', function (){
+Route::get('/cek', function () {
     return view('form_tambah_biodata');
 });
 
 //route Biodatacontroller
-Route::controller(BiodataController::class)->group(function () {
-    Route::get('/biodata', 'index');
-    Route::get('/tambah_biodata', 'create');
-    Route::post('/biodata', 'store');
-    Route::delete('/biodata/delete/{id}', 'destroy'); 
+Route::resource('biodata', BiodataController::class);
+// Route::controller(BiodataController::class)->group(function () {
+//     Route::get('/biodata', 'index');
+//     Route::get('/tambah_biodata', 'create');
+//     Route::post('/biodata', 'store');
+//     Route::delete('/biodata/delete/{id}', 'destroy');
+// });
+
+//subjektif routes
+Route::resource('subjektif', SubjektifController::class);
+// Route::resource('subjektif', SubjektifController::class)->only('show')->middleware('can:isSemua');
+Route::controller(SubjektifController::class)->group(function () {
+    Route::get('/subjektif/create/{id}', 'create');
+});
+
+//objektif routes
+Route::resource('objektif', ObjektifController::class);
+// Route::resource('objektif', ObjektifController::class)->only('show')->middleware('can:isSemua');
+Route::controller(objektifController::class)->group(function () {
+    Route::get('/objektif/create/{id}', 'create');
+});
+
+//checkup routes
+Route::controller(CheckupController::class)->group(function () {
+    Route::get('/checkup/{id}', 'index');
+});
+Route::controller(CheckupController::class)->group(function () {
+    Route::get('/checkup/create/{id}', 'create');
 });

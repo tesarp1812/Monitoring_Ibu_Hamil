@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="{{ '/tambah_biodata' }}" class="btn btn-primary">Tambah Data</a>
+                <a href="{{ route('biodata.create') }}" class="btn btn-primary">Tambah Data</a>
             </div>
             <div class="col">
                 <form action="" method="GET">
@@ -39,10 +39,10 @@
                     <td scope="col">{{ $b->nomer_suami }}</td>
                     <td scope="col">
                         <ul class="nav">
-                            {{-- <a scope="col" href="{{ route('biodata.edit', $b->id) }}"
+                            <a scope="col" href="{{ route('biodata.edit', $b->id) }}"
                                 class="btn btn-primary mr-2">Edit</a>
-                            <a scope="col" href="{{ route('biodata.show', $b->id) }}" class="btn btn-secondary">Show</a> --}}
-                            <form action="{{ '/biodata/[biodata]' }}" method="POST">
+                            <a scope="col" href="{{ route('biodata.show', $b->id) }}" class="btn btn-secondary">Show</a>
+                            <form action="{{ route('biodata.destroy', $b->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <!-- Button trigger modal -->
