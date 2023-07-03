@@ -73,9 +73,8 @@ Route::controller(objektifController::class)->group(function () {
 });
 
 //checkup routes
+Route::resource('checkup', CheckupController::class);
 Route::controller(CheckupController::class)->group(function () {
     Route::get('/checkup/{id}', 'index');
-});
-Route::controller(CheckupController::class)->group(function () {
     Route::get('/checkup/create/{id}', 'create');
 });

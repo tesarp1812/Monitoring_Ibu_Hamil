@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Biodata;
-use App\Models\checkup;
+use App\Models\Checkup;
 
 
 class CheckupController extends Controller
