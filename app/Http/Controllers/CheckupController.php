@@ -25,6 +25,7 @@ class CheckupController extends Controller
     public function create(Request $request)
     {
         //
+
         return view('form_tambah_checkup', ['id' => $request->id]);
     }
 

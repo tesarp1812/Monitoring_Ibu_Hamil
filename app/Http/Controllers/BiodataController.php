@@ -105,18 +105,9 @@ class BiodataController extends Controller
     public function destroy($id)
     {
         //
-        $biodata = Biodata::find($id);
+        $biodata = Biodata::findOrFail($id);
         $biodata->delete();
 
         return redirect()->route('biodata.index');
-    }
-
-    /*
-    *
-    */
-    public function back($id)
-    {
-        $biodata = Biodata::where('id', $id)->first();
-        return redirect('profil_biodata', compact('biodata'));
     }
 }

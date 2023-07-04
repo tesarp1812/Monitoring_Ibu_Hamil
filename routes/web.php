@@ -21,29 +21,34 @@ use App\Http\Controllers\CheckupController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/homepage', function () {
     return view('homepage');
 });
+
+// Route::get('/homepage', function () {
+//     return view('homepage');
+// });
 
 //jadwal page
 Route::get('/jadwal', function () {
     return view('jadwal');
 });
 
-//route page
-Route::controller(PageController::class)->group(function () {
-    // Route::get('/login', 'login');
+//about page
+Route::get('/about', function () {
+    return view('about');
 });
 
+//route page
+// Route::controller(PageController::class)->group(function () {
+//     // Route::get('/login', 'login');
+// });
+
 //route logincontroller
-Route::controller(LoginController::class)->group(function () {
-    Route::get('/login', 'login');
-    Route::post('/login', 'authenticate');
-    Route::get('/logout', 'logout');
-});
+// Route::controller(LoginController::class)->group(function () {
+//     Route::get('/login', 'login');
+//     Route::post('/login', 'authenticate');
+//     Route::get('/logout', 'logout');
+// });
 
 Route::get('/cek', function () {
     return view('form_tambah_biodata');
@@ -73,8 +78,8 @@ Route::controller(objektifController::class)->group(function () {
 });
 
 //checkup routes
-Route::resource('checkup', CheckupController::class);
 Route::controller(CheckupController::class)->group(function () {
     Route::get('/checkup/{id}', 'index');
     Route::get('/checkup/create/{id}', 'create');
 });
+Route::resource('checkup', CheckupController::class);
