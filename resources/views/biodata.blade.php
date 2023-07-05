@@ -1,9 +1,14 @@
 @extends('layout.app')
 @section('content')
     <div class="container">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col">
-                <a href="{{ route('biodata.create') }}" class="btn btn-primary">Tambah Data</a>
+                <a href="/tambah_biodata" class="btn btn-primary">Tambah Data</a>
             </div>
             <div class="col">
                 <form action="" method="GET">
@@ -39,17 +44,14 @@
                     <td scope="col">{{ $b->nomer_suami }}</td>
                     <td scope="col">
                         <ul class="nav">
-                            <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                action="{{ route('biodata.destroy', $b->id) }}" method="POST">
-                                <a scope="col" href="{{ route('biodata.edit', $b->id) }}"
+                            <form>
+                                <a scope="col" href="/biodata/edit/{{ $b->id }}"
                                     class="btn btn-primary mr-2">Edit</a>
-                                <a scope="col" href="{{ route('biodata.show', $b->id) }}"
+                                <a scope="col" href="/biodata/show/{{ $b->id }}"
                                     class="btn btn-secondary">Show</a>
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">HAPUS</button>
+                                <a scope="col" href="/biodata/delete/{{ $b->id }}"
+                                    class="btn btn-danger">Hapus</a>
                             </form>
-                        </ul>
                     </td>
                     <td>
                         <a href="{{ route('checkup.index') }}/{{ $b->id }}" class="btn btn-primary mr-2">Chekup</a>

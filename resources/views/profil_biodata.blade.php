@@ -148,10 +148,9 @@
                                     </div>
                                     < </div>
                                         <div>
-                                            <a scope="col"
-                                                href="{{ route('subjektif.edit', $biodata->subjektif->id ?? '') }}"
+                                            <a scope="col" href="/subjektif/edit/{{ $biodata->id }}"
                                                 class="btn btn-primary mr-2">Edit</a>
-                                            <a scope="col" href="{{ route('subjektif.create') }}/{{ $biodata->id }}"
+                                            <a scope="col" href="/subjektif/create/{{ $biodata->id }}"
                                                 class="btn btn-primary mr-2">Tambah Data Baru</a>
                                         </div>
 
@@ -310,11 +309,9 @@
                                                 class="col-sm-2 col-form-label">{{ $biodata->objektif->eks_bawah ?? '' }}</label>
                                         </div>
                                         <div>
-                                            <a scope="col"
-                                                href="{{ route('objektif.edit', $biodata->subjektif->id ?? '') }}"
+                                            <a scope="col" href="/objektif/edit/{{ $biodata->id }}"
                                                 class="btn btn-primary mr-2">Edit</a>
-
-                                            <a scope="col" href="{{ route('objektif.create') }}/{{ $biodata->id }}"
+                                            <a scope="col" href="/objektif/create/{{ $biodata->id }}"
                                                 class="btn btn-primary mr-2">Tambah Data Baru</a>
 
                                         </div>
@@ -325,7 +322,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    <a href="{{ route('biodata.index') }}" class="btn btn-primary">Kembali</a>
+                    <a href="/biodata" class="btn btn-primary">Kembali</a>
                 </div>
             </div>
         @endsection

@@ -38,10 +38,6 @@ Route::get('/about', function () {
     return view('about');
 });
 
-//route page
-// Route::controller(PageController::class)->group(function () {
-//     // Route::get('/login', 'login');
-// });
 
 //route logincontroller
 // Route::controller(LoginController::class)->group(function () {
@@ -50,30 +46,41 @@ Route::get('/about', function () {
 //     Route::get('/logout', 'logout');
 // });
 
-Route::get('/cek', function () {
-    return view('form_tambah_biodata');
-});
 
 //route Biodatacontroller
-Route::resource('biodata', BiodataController::class);
-// Route::controller(BiodataController::class)->group(function () {
-//     Route::get('/biodata', 'index');
-//     Route::get('/tambah_biodata', 'create');
-//     Route::post('/biodata', 'store');
-//     Route::delete('/biodata/delete/{id}', 'destroy');
-// });
+// Route::resource('biodata', BiodataController::class);
+Route::controller(BiodataController::class)->group(function () {
+    Route::get('/biodata', 'index');
+    //tambah data
+    Route::get('/tambah_biodata', 'create');
+    Route::post('/biodata', 'store');
+    //edit data
+    Route::get('/biodata/edit/{id}', 'edit');
+    Route::put('/biodata/update/{id}', 'update');
+    //show data objek&subjek
+    Route::get('/biodata/show/{id}', 'show');
+    //delete
+    Route::get('/biodata/delete/{id}', 'destroy');
+});
 
 //subjektif routes
-Route::resource('subjektif', SubjektifController::class);
-// Route::resource('subjektif', SubjektifController::class)->only('show')->middleware('can:isSemua');
+// Route::resource('subjektif', SubjektifController::class);
 Route::controller(SubjektifController::class)->group(function () {
+    //tambah data
     Route::get('/subjektif/create/{id}', 'create');
+    Route::post('/subjektif', 'store');
+    //edit data
+    Route::get('/subjektif/edit/{id}', 'edit');
+    Route::put('/subjektif/update/{id}', 'update');
 });
 
 //objektif routes
-Route::resource('objektif', ObjektifController::class);
-// Route::resource('objektif', ObjektifController::class)->only('show')->middleware('can:isSemua');
+//Route::resource('objektif', ObjektifController::class);
 Route::controller(objektifController::class)->group(function () {
+    //tambah data
+    Route::get('/objektif/create/{id}', 'create');
+    Route::post('/objektif', 'store');
+    //
     Route::get('/objektif/create/{id}', 'create');
 });
 

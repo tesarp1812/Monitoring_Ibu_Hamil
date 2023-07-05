@@ -50,7 +50,7 @@ class BiodataController extends Controller
             'nomer_suami' => $request->inputnomer_suami,
         ]);
 
-        return redirect()->route('biodata.index');
+        return redirect('/biodata')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -69,9 +69,11 @@ class BiodataController extends Controller
      */
     public function edit($id)
     {
-        //
+        //mengambil data
         $biodata = Biodata::where('id', $id)->first();
-        return view('form_ubah_biodata', compact('biodata'));
+        // dd($biodata);
+        // passing data ke view
+        return view('form_ubah_biodata', ['biodata' => $biodata]);
     }
 
     /**
@@ -96,7 +98,7 @@ class BiodataController extends Controller
         $biodata->alamat_suami = $request->inputalamat_suami;
         $biodata->nomer_suami = $request->inputnomer_suami;
         $biodata->save();
-        return redirect()->route('biodata.index');
+        return redirect('/biodata');
     }
 
     /**
@@ -108,6 +110,6 @@ class BiodataController extends Controller
         $biodata = Biodata::findOrFail($id);
         $biodata->delete();
 
-        return redirect()->route('biodata.index');
+        return redirect('/biodata');
     }
 }

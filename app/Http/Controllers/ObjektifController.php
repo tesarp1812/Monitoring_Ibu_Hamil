@@ -60,7 +60,7 @@ class ObjektifController extends Controller
             'eks_bawah' => $request->inputeks_bawah,
         ]);
 
-        return redirect()->route('biodata.index');
+        return redirect('/biodata')->with('success', 'Data Objektif berhasil disimpan.');
     }
 
     /**
@@ -78,6 +78,7 @@ class ObjektifController extends Controller
     {
         //
         $objektif = Objektif::where('id', $id)->first();
+        //dd($objektif);
         return view('form_ubah_objektif', compact('objektif'));
     }
 
@@ -112,6 +113,7 @@ class ObjektifController extends Controller
         $objektif->genetalia = $request->inputgenetalia;
         $objektif->eks_atas = $request->inputeks_atas;
         $objektif->eks_bawah = $request->inputeks_bawah;
+        return redirect('/biodata');
     }
 
     /**

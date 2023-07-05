@@ -7,7 +7,7 @@
             </div>
             <div class="card-body">
                 <a href="{{ url()->previous() }}" class="btn btn-primary">Kembali</a>
-                <form action="{{ route('subjektif.store') }}" method="POST">
+                <form action="{{ '/subjektif' }}" method="POST">
                     @csrf
                     <ul class="list-group">
 

@@ -3,11 +3,11 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Tambah Biodata</h3>
+                <h3>Edit Subjektif</h3>
             </div>
             <div class="card-body">
                 <a href="{{ url()->previous() }}" class="btn btn-primary">Kembali</a>
-                <form action="" method="POST">
+                <form action="/subjektif/update/{{ $subjektif->biodata_id }}" method="POST">
                     @csrf
                     @method('PUT')
                     <ul class="list-group">
