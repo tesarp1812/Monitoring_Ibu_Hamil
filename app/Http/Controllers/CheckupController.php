@@ -16,7 +16,7 @@ class CheckupController extends Controller
     {
         $checkup = Checkup::with('biodata')->where('biodata_id', $request->id)->get();
         // dd($checkup);
-        return view('data_checkup', ['cp' => $checkup, 'biodata_id' => $request->id]);
+        return view('data_checkup', ['cek' => $checkup, 'biodata_id' => $request->id]);
     }
 
     /**
@@ -52,7 +52,7 @@ class CheckupController extends Controller
             'jadwal_kembali' => $request->inputjadwal,
         ]);
 
-        return redirect()->route('checkup.index', ["id" => $request->inputbiodata]);
+        return redirect('/checkup/' . $request->inputbiodata);
     }
 
     /**

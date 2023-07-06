@@ -44,20 +44,22 @@
                     <td scope="col">{{ $b->nomer_suami }}</td>
                     <td scope="col">
                         <ul class="nav">
-                            <form>
-                                <a scope="col" href="/biodata/edit/{{ $b->id }}"
+                            <form onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');"
+                                action="/biodata/delete/{{ $b->id }}" method="POST">
+                                <a scope="col" href="/subjektif/edit/{{ $b->id }}"
                                     class="btn btn-primary mr-2">Edit</a>
                                 <a scope="col" href="/biodata/show/{{ $b->id }}"
                                     class="btn btn-secondary">Show</a>
-                                <a scope="col" href="/biodata/delete/{{ $b->id }}"
-                                    class="btn btn-danger">Hapus</a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Hapus</button>
                             </form>
                     </td>
                     <td>
-                        <a href="{{ route('checkup.index') }}/{{ $b->id }}" class="btn btn-primary mr-2">Chekup</a>
-                        {{-- <a href="{{ route('checkup.index') }}/{{ $b->id }}" class="btn btn-primary mr-2">Chekup</a> --}}
-                        {{-- <a href="{{ route('checkup.create', $b->id) }}" class="btn btn-primary mr-2">Tambah Data --}}
-                        Checkup</a>
+                        <a href="/subjektif/{{ $b->id }}" class="btn btn-primary mr-2">Subjektif</a>
+                        <a href="" class="btn btn-primary mr-2">Objektif</a>
+                        <a href="/checkup/{{ $b->id }}" class="btn btn-primary mr-2">Chekup</a>
+
                     </td>
                 </tr>
             @endforeach

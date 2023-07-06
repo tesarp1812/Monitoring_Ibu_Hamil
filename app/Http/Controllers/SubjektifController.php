@@ -19,11 +19,12 @@ class SubjektifController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        // $subjektif = Subjektif::get();
-        // return view('subjektif', compact('subjektif'));
+        $subjektif = Subjektif::with('biodata')->where('biodata_id', $request->id)->get()->first();
+        //dd($subjektif);
+        return view('subjektif', ['subjek' => $subjektif, 'biodata_id' => $request->id]);
     }
 
     /**
@@ -42,7 +43,7 @@ class SubjektifController extends Controller
     public function store(Request $request)
     {
         //
-        $subjektif = Subjektif::create([
+        Subjektif::create([
             'biodata_id' => $request->inputbiodata,
             'keluhan' => $request->inputkeluhan,
             'riwayat_penyakit' => $request->inputriwayat_penyakit,
@@ -60,7 +61,7 @@ class SubjektifController extends Controller
             'riwayat_kb' => $request->inputriwayat_kb,
         ]);
 
-        return redirect('/biodata')->with(['success' => 'Data Subjektif Berhasil Disimpan!']);
+        return redirect('/subjektif/', $request->inputbiodata);
     }
 
     /**
@@ -105,7 +106,7 @@ class SubjektifController extends Controller
         $subjektif->riwayat_kehamilan = $request->inputriwayat_kehamilan;
         $subjektif->riwayat_kb = $request->inputriwayat_kb;
         $subjektif->save();
-        return redirect('/biodata');
+        return redirect('/subjektif', ["id" => $request->inputbiodata]);
     }
 
     /**

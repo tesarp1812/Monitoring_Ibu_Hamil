@@ -60,12 +60,13 @@ Route::controller(BiodataController::class)->group(function () {
     //show data objek&subjek
     Route::get('/biodata/show/{id}', 'show');
     //delete
-    Route::get('/biodata/delete/{id}', 'destroy');
+    Route::delete('/biodata/delete/{id}', 'destroy');
 });
 
 //subjektif routes
 // Route::resource('subjektif', SubjektifController::class);
 Route::controller(SubjektifController::class)->group(function () {
+    Route::get('/subjektif/{id}', 'index');
     //tambah data
     Route::get('/subjektif/create/{id}', 'create');
     Route::post('/subjektif', 'store');
@@ -87,6 +88,8 @@ Route::controller(objektifController::class)->group(function () {
 //checkup routes
 Route::controller(CheckupController::class)->group(function () {
     Route::get('/checkup/{id}', 'index');
+    //tambah data
     Route::get('/checkup/create/{id}', 'create');
+    Route::post('/checkup', 'store');
 });
-Route::resource('checkup', CheckupController::class);
+// Route::resource('checkup', CheckupController::class);
