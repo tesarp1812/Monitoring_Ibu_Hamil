@@ -112,4 +112,12 @@ class BiodataController extends Controller
 
         return redirect('/biodata');
     }
+
+    public function search(Request $request)
+    {
+        $cari = $request->input('cari');
+        $biodata = Biodata::where('nama', 'LIKE', "%$cari%")->get();
+
+        return view('biodata', compact('biodata'));
+    }
 }

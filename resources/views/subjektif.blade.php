@@ -82,7 +82,8 @@
                 </div>
             </div>
             <div>
-                <a scope="col" href="/subjektif/edit/{{ $subjek->biodata_id }}" class="btn btn-primary mr-2">Edit</a>
+                <a scope="col" href="/subjektif/edit/{{ $subjek->biodata_id ?? '' }}"
+                    class="btn btn-primary mr-2">Edit</a>
                 <a scope="col" href="/subjektif/create/{{ $biodata_id }}" class="btn btn-primary mr-2">Tambah
                     Data Baru</a>
             </div>

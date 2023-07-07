@@ -11,9 +11,9 @@
                 <a href="/tambah_biodata" class="btn btn-primary">Tambah Data</a>
             </div>
             <div class="col">
-                <form action="" method="GET">
+                <form action="/biodata/search" method="GET">
                     <input type="text" name="cari" placeholder="Cari Data Pasien..." value="">
-                    <input type="submit" value="CARI">
+                    <input type="submit" value="{{ request('cari') }}">
                 </form>
             </div>
         </div>

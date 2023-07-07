@@ -8,6 +8,7 @@ use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\SubjektifController;
 use App\Http\Controllers\ObjektifController;
 use App\Http\Controllers\CheckupController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,30 +22,36 @@ use App\Http\Controllers\CheckupController;
 */
 
 Route::get('/', function () {
-    return view('homepage');
+    return view('homepage', [
+        'title' => "homepage"
+    ]);
 });
 
-// Route::get('/homepage', function () {
-//     return view('homepage');
+// Route::get('/login', function () {
+//     return view('login');
 // });
 
 //jadwal page
 Route::get('/jadwal', function () {
-    return view('jadwal');
+    return view('jadwal', [
+        'title' => "jadwal"
+    ]);
 });
 
 //about page
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        'title' => 'jadwal'
+    ]);
 });
 
 
-//route logincontroller
-// Route::controller(LoginController::class)->group(function () {
-//     Route::get('/login', 'login');
-//     Route::post('/login', 'authenticate');
-//     Route::get('/logout', 'logout');
-// });
+//route Authcontroller
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/login', 'showLoginForm');
+    Route::post('/login', 'authenticate');
+    Route::get('/logout', 'logout');
+});
 
 
 //route Biodatacontroller
@@ -61,6 +68,8 @@ Route::controller(BiodataController::class)->group(function () {
     Route::get('/biodata/show/{id}', 'show');
     //delete
     Route::delete('/biodata/delete/{id}', 'destroy');
+    //search data
+    Route::get('/biodata/search', 'search');
 });
 
 //subjektif routes

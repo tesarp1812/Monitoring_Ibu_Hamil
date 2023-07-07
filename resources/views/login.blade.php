@@ -25,9 +25,9 @@
 
                             <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Login</button>
                         </form>
-                        <small class="d-block mt-3">Doesn't have an account? <a class="text-danger" href="/register">
-                                Register
-                                Now!</a></small>
+                        <small class="d-block mt-3">Belum Punya Akun? <a class="text-danger" href="/register">
+                                Daftar
+                                Sekarang!</a></small>
                     </main>
                 </div>
             </div>
