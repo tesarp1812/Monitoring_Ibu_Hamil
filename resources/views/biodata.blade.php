@@ -65,4 +65,8 @@
             @endforeach
         </tbody>
     </table>
+    <!-- Menampilkan tautan navigasi halaman -->
+    <div class="d-flex justify-content-center">
+        {{ $biodata->links() }}
+    </div>
 @endsection

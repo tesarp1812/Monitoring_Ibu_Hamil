@@ -89,9 +89,7 @@
                 </div>
             </div>
             <div>
-
-
-                {{-- delete form --}}
+                {{-- delete&edit form show when have data --}}
                 @if ($subjek)
                     <form onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');"
                         action="/subjektif/delete/{{ $subjek->id }}" method="POST" style="display: inline-block;">
@@ -103,9 +101,5 @@
                     </form>
                 @endif
             </div>
-
-
         </div>
-    </div>
-    </div>
-@endsection
+    @endsection

@@ -9,25 +9,24 @@ class AuthController extends Controller
 {
     public function showLoginForm()
     {
-        return view('login');
+        return view('login', [
+            'title' => 'Login',
+        ]);
     }
 
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email:dns',
             'password' => 'required',
         ]);
 
         if (Auth::attempt($credentials)) {
-            // Autentikasi berhasil
-            return redirect()->intended('/user');
+            $request->session()->regenerate();
+            return redirect()->intended('/data');
         }
 
-        // Autentikasi gagal
-        return redirect()->back()->withErrors([
-            'email' => 'Email atau password salah.',
-        ]);
+        return back()->with('loginError', 'Login failed');
     }
 
     public function logout()

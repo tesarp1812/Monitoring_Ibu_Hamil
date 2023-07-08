@@ -46,11 +46,11 @@ Route::get('/about', function () {
 });
 
 
-//route Authcontroller
+//route Authcontroller || sistem login
 Route::controller(AuthController::class)->group(function () {
-    Route::get('/login', 'showLoginForm');
-    Route::post('/user', [AuthController::class, 'login']);
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/login', 'showLoginForm')->middleware('guest');
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
 
 
