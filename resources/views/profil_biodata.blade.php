@@ -1,5 +1,8 @@
 @extends('layout.app')
 @section('content')
+    <div class="card-footer text-muted">
+        <a href="/biodata" class="btn btn-primary">Kembali</a>
+    </div>
     <div class="card text-center">
         <div class="card-header bg-info">
             Biodata Pasien
@@ -146,183 +149,167 @@
                                         <label
                                             class="col-sm-2 col-form-label">{{ $biodata->subjektif->riwayat_kb ?? '' }}</label>
                                     </div>
-                                    < </div>
-                                        <div>
-                                            <a scope="col" href="/subjektif/edit/{{ $biodata->id }}"
-                                                class="btn btn-primary mr-2">Edit</a>
-                                            <a scope="col" href="/subjektif/create/{{ $biodata->id }}"
-                                                class="btn btn-primary mr-2">Tambah Data Baru</a>
-                                        </div>
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="card">
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-header bg-info">Data Objektif</h5>
                             <div class="card-body">
-                                <h5 class="card-header bg-info">Data Objektif</h5>
-                                <div class="card-body">
-                                    <div class="mb-3 row">
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">kesadaran</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->kesadaran ?? '' }}</label>
-                                        </div>
+                                <div class="mb-3 row">
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">kesadaran</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->kesadaran ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">tekanan_darah</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->tekanan_darah ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">tekanan_darah</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->tekanan_darah ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">suhu</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->suhu ?? '' }}/C</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">suhu</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->suhu ?? '' }}/C</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">nadi</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->nadi ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">nadi</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->nadi ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">respirasi</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->respirasi ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">respirasi</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->respirasi ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">bb</label>
-                                        <div class="col-sm-10">
-                                            <label class="col-sm-2 col-form-label">{{ $biodata->objektif->bb ?? '' }}
-                                                Kg</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">bb</label>
+                                    <div class="col-sm-10">
+                                        <label class="col-sm-2 col-form-label">{{ $biodata->objektif->bb ?? '' }}
+                                            Kg</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">tb</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->tb ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">tb</label>
+                                    <div class="col-sm-10">
+                                        <label class="col-sm-2 col-form-label">{{ $biodata->objektif->tb ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">kepala</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->kepala ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">kepala</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->kepala ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">rambut</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->rambut ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">rambut</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->rambut ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">muka</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->muka ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">muka</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->muka ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">mata</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->mata ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">mata</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->mata ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">hidung</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->hidung ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">hidung</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->hidung ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">telinga</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->telinga ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">telinga</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->telinga ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">mulut</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->mulut ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">mulut</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->mulut ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">leher</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->leher ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">leher</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->leher ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">dada</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->dada ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">dada</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->dada ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">abdomen</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->abdomen ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">abdomen</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->abdomen ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">leopold 1</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->leopold1 ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">leopold 1</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->leopold1 ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">leopold 2</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->leopold2 ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">leopold 2</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->leopold2 ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">leopold 3</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->leopold3 ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">leopold 3</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->leopold3 ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">leopold 4</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->leopold4 ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">leopold 4</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->leopold4 ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">genetalia</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->genetalia ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">genetalia</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->genetalia ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">eks_atas</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->eks_atas ?? '' }}</label>
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">eks_atas</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->eks_atas ?? '' }}</label>
+                                    </div>
 
-                                        <label for="staticEmail" class="col-sm-2 col-form-label">eks_bawah</label>
-                                        <div class="col-sm-10">
-                                            <label
-                                                class="col-sm-2 col-form-label">{{ $biodata->objektif->eks_bawah ?? '' }}</label>
-                                        </div>
-                                        <div>
-                                            <a scope="col" href="/objektif/edit/{{ $biodata->id }}"
-                                                class="btn btn-primary mr-2">Edit</a>
-                                            <a scope="col" href="/objektif/create/{{ $biodata->id }}"
-                                                class="btn btn-primary mr-2">Tambah Data Baru</a>
-
-                                        </div>
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">eks_bawah</label>
+                                    <div class="col-sm-10">
+                                        <label
+                                            class="col-sm-2 col-form-label">{{ $biodata->objektif->eks_bawah ?? '' }}</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer text-muted">
-                    <a href="/biodata" class="btn btn-primary">Kembali</a>
-                </div>
             </div>
-        @endsection
+            <div class="card-footer text-muted">
+                <a href="/biodata" class="btn btn-primary">Kembali</a>
+            </div>
+        </div>
+    @endsection

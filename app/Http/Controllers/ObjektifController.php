@@ -12,9 +12,12 @@ class ObjektifController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $objektif = Objektif::with('biodata')->where('biodata_id', $request->id)->get()->first();
+        //dd($objektif);
+        return view('objektif', ['objek' => $objektif, 'biodata_id' => $request->id]);
     }
 
     /**
@@ -60,7 +63,7 @@ class ObjektifController extends Controller
             'eks_bawah' => $request->inputeks_bawah,
         ]);
 
-        return redirect('/biodata')->with('success', 'Data Objektif berhasil disimpan.');
+        return redirect('/biodata')->with('success', 'Data Objektif``` berhasil disimpan.');
     }
 
     /**
@@ -113,7 +116,7 @@ class ObjektifController extends Controller
         $objektif->genetalia = $request->inputgenetalia;
         $objektif->eks_atas = $request->inputeks_atas;
         $objektif->eks_bawah = $request->inputeks_bawah;
-        return redirect('/biodata');
+        return redirect('/objektif/' . $objektif->id);
     }
 
     /**
@@ -121,6 +124,9 @@ class ObjektifController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // hapus data
+        $objektif = Objektif::findOrFail($id);
+        $objektif->delete();
+        return redirect('/objektif/' . $objektif->id);
     }
 }

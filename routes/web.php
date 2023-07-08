@@ -49,8 +49,8 @@ Route::get('/about', function () {
 //route Authcontroller
 Route::controller(AuthController::class)->group(function () {
     Route::get('/login', 'showLoginForm');
-    Route::post('/login', 'authenticate');
-    Route::get('/logout', 'logout');
+    Route::post('/user', [AuthController::class, 'login']);
+    Route::get('/logout', [AuthController::class, 'logout']);
 });
 
 
@@ -82,16 +82,23 @@ Route::controller(SubjektifController::class)->group(function () {
     //edit data
     Route::get('/subjektif/edit/{id}', 'edit');
     Route::put('/subjektif/update/{id}', 'update');
+    //hapus data 
+    Route::delete('/subjektif/delete/{id}', 'destroy');
 });
 
 //objektif routes
 //Route::resource('objektif', ObjektifController::class);
 Route::controller(objektifController::class)->group(function () {
+    //tampil view objektif
+    Route::get('/objektif/{id}', 'index');
     //tambah data
     Route::get('/objektif/create/{id}', 'create');
     Route::post('/objektif', 'store');
-    //
-    Route::get('/objektif/create/{id}', 'create');
+    //edit data
+    Route::get('/objektif/edit/{id}', 'edit');
+    Route::put('/objektif/update/{id}', 'update');
+    //hapus data 
+    Route::delete('/objektif/delete/{id}', 'destroy');
 });
 
 //checkup routes

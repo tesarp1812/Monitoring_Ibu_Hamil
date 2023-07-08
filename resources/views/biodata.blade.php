@@ -46,7 +46,7 @@
                         <ul class="nav">
                             <form onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');"
                                 action="/biodata/delete/{{ $b->id }}" method="POST">
-                                <a scope="col" href="/subjektif/edit/{{ $b->id }}"
+                                <a scope="col" href="/biodata/edit/{{ $b->id }}"
                                     class="btn btn-primary mr-2">Edit</a>
                                 <a scope="col" href="/biodata/show/{{ $b->id }}"
                                     class="btn btn-secondary">Show</a>
@@ -57,7 +57,7 @@
                     </td>
                     <td>
                         <a href="/subjektif/{{ $b->id }}" class="btn btn-primary mr-2">Subjektif</a>
-                        <a href="" class="btn btn-primary mr-2">Objektif</a>
+                        <a href="/objektif/{{ $b->id }}" class="btn btn-primary mr-2">Objektif</a>
                         <a href="/checkup/{{ $b->id }}" class="btn btn-primary mr-2">Chekup</a>
 
                     </td>

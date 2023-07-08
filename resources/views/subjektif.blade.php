@@ -1,6 +1,13 @@
 @extends('layout.app')
 @section('content')
-    <a scope="col" href="/biodata" class="btn btn-primary mr-2">Kembali</a>
+    <form>
+        <a scope="col" href="/biodata" class="btn btn-primary mr-2">Kembali</a>
+        @if (!$subjek)
+            <a scope="col" href="/subjektif/create/{{ $biodata_id }}" class="btn btn-primary mr-2">Tambah
+                Data Baru</a>
+        @endif
+    </form>
+
     <div class="card-body">
         <h5 class="card-header bg-info">Data Subjektif</h5>
         <div class="card-body">
@@ -82,10 +89,19 @@
                 </div>
             </div>
             <div>
-                <a scope="col" href="/subjektif/edit/{{ $subjek->biodata_id ?? '' }}"
-                    class="btn btn-primary mr-2">Edit</a>
-                <a scope="col" href="/subjektif/create/{{ $biodata_id }}" class="btn btn-primary mr-2">Tambah
-                    Data Baru</a>
+
+
+                {{-- delete form --}}
+                @if ($subjek)
+                    <form onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');"
+                        action="/subjektif/delete/{{ $subjek->id }}" method="POST" style="display: inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        {{-- <button type="submit" class="btn btn-danger">Hapus</button> --}}
+                        <a scope="col" href="/subjektif/edit/{{ $subjek->biodata_id ?? '' }}"
+                            class="btn btn-primary mr-2">Edit</a>
+                    </form>
+                @endif
             </div>
 
 

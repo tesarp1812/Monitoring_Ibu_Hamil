@@ -61,7 +61,7 @@ class SubjektifController extends Controller
             'riwayat_kb' => $request->inputriwayat_kb,
         ]);
 
-        return redirect('/subjektif/', $request->inputbiodata);
+        return redirect('/subjektif/' . $request->input('inputbiodata'));
     }
 
     /**
@@ -80,7 +80,7 @@ class SubjektifController extends Controller
     public function edit($id)
     {
         //
-        $subjektif = Subjektif::where('biodata_id', $id)->first();
+        $subjektif = Subjektif::where('id', $id)->first();
         // dd($subjektif);
         return view('form_ubah_subjektif', ['subjektif' => $subjektif]);
     }
@@ -106,7 +106,7 @@ class SubjektifController extends Controller
         $subjektif->riwayat_kehamilan = $request->inputriwayat_kehamilan;
         $subjektif->riwayat_kb = $request->inputriwayat_kb;
         $subjektif->save();
-        return redirect('/subjektif', ["id" => $request->inputbiodata]);
+        return redirect('/subjektif/' . $subjektif->id);
     }
 
     /**
@@ -114,7 +114,10 @@ class SubjektifController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // hapus data
+        $subjektif = Subjektif::findOrFail($id);
+        $subjektif->delete();
+        return redirect('/subjektif/' . $subjektif->id);
     }
 
     /*

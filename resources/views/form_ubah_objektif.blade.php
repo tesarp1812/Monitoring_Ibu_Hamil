@@ -7,7 +7,7 @@
             </div>
             <div class="card-body">
                 <a href="{{ url()->previous() }}" class="btn btn-primary">Kembali</a>
-                <form action="/objektif/update" method="POST">
+                <form action="/objektif/update/{{ $objektif->biodata_id }}" method="POST">
                     @csrf
                     @method('PUT')
                     <ul class="list-group">
