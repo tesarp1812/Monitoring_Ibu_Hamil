@@ -22,7 +22,7 @@ class SubjektifController extends Controller
     public function index(Request $request)
     {
         //
-        $subjektif = Subjektif::with('biodata')->where('biodata_id', $request->id)->get()->first();
+        $subjektif = Subjektif::with('biodata')->where('biodata_id', $request->id)->first();
         //dd($subjektif);
         return view('subjektif', ['subjek' => $subjektif, 'biodata_id' => $request->id]);
     }
@@ -34,7 +34,8 @@ class SubjektifController extends Controller
     {
 
         //
-        return view('form_tambah_subjektif', ['id' => $request->id]);
+        $biodataId = $request->id;
+        return view('form_tambah_subjektif', ['biodata_id' => $request->id]);
     }
 
     /**
@@ -70,7 +71,8 @@ class SubjektifController extends Controller
     public function show($id)
     {
         //
-        $subjektif = Subjektif::where('id', $id)->first();
+        $subjektif = Subjektif::where('biodata_id', $id);
+        //dd($id);
         return view('data_subjektif', compact('subjektif'));
     }
 
@@ -80,8 +82,9 @@ class SubjektifController extends Controller
     public function edit($id)
     {
         //
-        $subjektif = Subjektif::where('id', $id)->first();
-        // dd($subjektif);
+        $subjektif = Subjektif::where('biodata_id', $id)->first();
+        // 
+        //dd($id);
         return view('form_ubah_subjektif', ['subjektif' => $subjektif]);
     }
 

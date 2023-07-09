@@ -32,7 +32,16 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate the request
+        // $request->validate([
+        //     'nama' => 'required|min:4',
+        //     'umur' => 'required|numeric|max:2',
+        //     'nomer_tlpn' => 'required|numeric|min:8|max:15',
+        //     'umur_suami' => 'required|numeric|max:2',
+        //     'nomer_suami' => 'required|numeric|min:8|max:15',
+        // ]);
+
+        //tambah data
         Biodata::create([
             'nama' => $request->inputnama,
             'umur' => $request->inputumur,

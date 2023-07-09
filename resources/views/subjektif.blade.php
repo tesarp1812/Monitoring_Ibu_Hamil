@@ -95,7 +95,7 @@
                         action="/subjektif/delete/{{ $subjek->id }}" method="POST" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
-                        {{-- <button type="submit" class="btn btn-danger">Hapus</button> --}}
+                        <button type="submit" class="btn btn-danger">Hapus</button>
                         <a scope="col" href="/subjektif/edit/{{ $subjek->biodata_id ?? '' }}"
                             class="btn btn-primary mr-2">Edit</a>
                     </form>
