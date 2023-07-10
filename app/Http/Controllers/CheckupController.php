@@ -15,7 +15,7 @@ class CheckupController extends Controller
     public function index(Request $request)
     {
         $checkup = Checkup::with('biodata')->where('biodata_id', $request->id)->get();
-        dd($checkup);
+        //dd($checkup);
         return view('data_checkup', ['cek' => $checkup, 'biodata_id' => $request->id]);
     }
 
