@@ -89,11 +89,12 @@ class SubjektifController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //ambil foreign key (biodata_id)
         $subjektif = Subjektif::where('biodata_id', $id)->first();
 
         //inspect subjektif
         //dd($subjektif);
+
         $subjektif->keluhan = $request->inputkeluhan;
         $subjektif->riwayat_penyakit = $request->inputriwayat;
         $subjektif->riwayat_penyakit_keluarga = $request->inputkeluarga;

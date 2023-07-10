@@ -25,7 +25,7 @@ class ObjektifController extends Controller
      */
     public function create(Request $request)
     {
-        //
+        //  
         return view('form_tambah_objektif', ['id' => $request->id]);
     }
 
@@ -80,9 +80,9 @@ class ObjektifController extends Controller
     public function edit($id)
     {
         //
-        $objektif = Objektif::where('id', $id)->first();
+        $objektif = Objektif::where('biodata_id', $id)->first();
         //dd($objektif);
-        return view('form_ubah_objektif', compact('objektif'));
+        return view('form_ubah_objektif', ['objektif' => $objektif]);
     }
 
     /**
@@ -91,7 +91,7 @@ class ObjektifController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $objektif = Objektif::find($id);
+        $objektif = Objektif::where('biodata_id', $id)->first();
         $objektif->kesadaran = $request->inputkesadaran;
         $objektif->tekanan_darah = $request->inputtekanan_darah;
         $objektif->suhu = $request->inputsuhu;
@@ -117,7 +117,7 @@ class ObjektifController extends Controller
         $objektif->eks_atas = $request->inputeks_atas;
         $objektif->eks_bawah = $request->inputeks_bawah;
         $objektif->save();
-        return redirect('/objektif/' . $objektif->id);
+        return redirect('/objektif/' . $objektif->biodata_id);
     }
 
     /**
