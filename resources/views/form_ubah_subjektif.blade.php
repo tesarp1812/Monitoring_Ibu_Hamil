@@ -11,6 +11,7 @@
                     @csrf
                     @method('PUT')
                     <ul class="list-group">
+                        {{-- <input type="hidden" value="{{ $id }}" name="inputbiodata"> --}}
                         Keluhan <input type="text" name="inputkeluhan" required value="{{ $subjektif->keluhan }}">
                         Riwayat Penyakit <input type="text" name="inputriwayat" required
                             value="{{ $subjektif->riwayat_penyakit }}">

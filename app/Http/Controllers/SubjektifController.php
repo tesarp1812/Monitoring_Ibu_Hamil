@@ -11,10 +11,7 @@ use Illuminate\Http\Request;
 class SubjektifController extends Controller
 {
 
-    public function __invoke(Request $request)
-    {
-        return;
-    }
+    
 
     /**
      * Display a listing of the resource.
@@ -33,9 +30,7 @@ class SubjektifController extends Controller
     public function create(Request $request)
     {
 
-        //
-        $biodataId = $request->id;
-        return view('form_tambah_subjektif', ['biodata_id' => $request->id]);
+        return view('form_tambah_subjektif', ['id' => $request->id]);
     }
 
     /**
@@ -83,8 +78,9 @@ class SubjektifController extends Controller
     {
         //
         $subjektif = Subjektif::where('biodata_id', $id)->first();
+        //$subjektif = Subjektif::find($id);
         // 
-        //dd($id);
+        //dd($subjektif);
         return view('form_ubah_subjektif', ['subjektif' => $subjektif]);
     }
 
@@ -94,7 +90,10 @@ class SubjektifController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $subjektif = Subjektif::find($id);
+        $subjektif = Subjektif::where('biodata_id', $id)->first();
+
+        //inspect subjektif
+        //dd($subjektif);
         $subjektif->keluhan = $request->inputkeluhan;
         $subjektif->riwayat_penyakit = $request->inputriwayat;
         $subjektif->riwayat_penyakit_keluarga = $request->inputkeluarga;
@@ -109,7 +108,7 @@ class SubjektifController extends Controller
         $subjektif->riwayat_kehamilan = $request->inputriwayat_kehamilan;
         $subjektif->riwayat_kb = $request->inputriwayat_kb;
         $subjektif->save();
-        return redirect('/subjektif/' . $subjektif->id);
+        return redirect('/subjektif/' . $subjektif->biodata_id);
     }
 
     /**

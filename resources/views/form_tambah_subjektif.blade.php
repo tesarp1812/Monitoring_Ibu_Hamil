@@ -6,7 +6,7 @@
                 <h3>Tambah subjektif</h3>
             </div>
             <div class="card-body">
-                <a href="{{ url()->previous() }}" class="btn btn-primary">Kembali</a>
+                <a href="/biodata" class="btn btn-primary">Kembali</a>
                 <form action="/subjektif" method="POST">
                     @csrf
                     <ul class="list-group">

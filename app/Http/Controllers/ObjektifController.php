@@ -8,7 +8,7 @@ use App\Models\Biodata;
 use Illuminate\View\View;
 
 class ObjektifController extends Controller
-{
+{           
     /**
      * Display a listing of the resource.
      */
