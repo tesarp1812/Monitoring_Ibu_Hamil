@@ -15,6 +15,7 @@ class BiodataController extends Controller
     {
         //
         $biodata = Biodata::paginate(10);
+        //dd($biodata);
         return view('biodata', compact('biodata'));
     }
 

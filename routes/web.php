@@ -9,6 +9,7 @@ use App\Http\Controllers\SubjektifController;
 use App\Http\Controllers\ObjektifController;
 use App\Http\Controllers\CheckupController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JadwalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,4 +109,9 @@ Route::controller(CheckupController::class)->group(function () {
     Route::get('/checkup/create/{id}', 'create');
     Route::post('/checkup', 'store');
 });
-// Route::resource('checkup', CheckupController::class);
+
+//jadwal routes
+Route::controller(JadwalController::class)->group(function (){
+    Route::get('/jadwal', 'index');
+    //Route::get('/jadwal', 'jadwal');
+});
