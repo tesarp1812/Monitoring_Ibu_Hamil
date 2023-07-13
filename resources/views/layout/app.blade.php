@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+
     <title>Ibu Sehat</title>
     <div class="container-auto">
         <header
@@ -23,13 +24,34 @@
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
                 <li><a href="/jadwal" class="nav-link px-2 link-dark">Cek Jadwal</a></li>
-                <li><a href="/biodata" class="nav-link px-2 link-dark">Data</a></li>
+                @auth
+                    @if (auth()->user()->role === 'admin')
+                        <li><a href="/biodata" class="nav-link px-2 link-dark">Data</a></li>
+                    @endif
+                @endauth
                 <li><a href="/about" class="nav-link px-2 link-dark">About</a></li>
             </ul>
 
-            <div class="col-md-3 text-end">
-                <a class="btn btn-primary" href="/login" role="button">Login</a>
-                <a type="a" class="btn btn-outline-primary me-2">Register</a>
+            <div class="col-md-3">
+                @auth
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        welcome, {{ auth()->user()->name }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item">Logout</button>
+                        </form>
+                    </ul>
+                @else
+                    <a class="btn btn-primary" href="/login" role="button">Login</a>
+                    <a type="a" class="btn btn-outline-primary me-2">Register</a>
+                @endauth
             </div>
         </header>
     </div>
