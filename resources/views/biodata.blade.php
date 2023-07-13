@@ -29,7 +29,7 @@
                 <th scope="col">nama suami</th>
                 <th scope="col">nomer suami</th>
                 <th scope="col">Aksi</th>
-                <th scope="col">Checkup</th>
+                <th scope="col">Data Pasien</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -56,10 +56,18 @@
                             </form>
                     </td>
                     <td>
-                        <a href="/subjektif/{{ $b->id }}" class="btn btn-primary mr-2">Subjektif</a>
-                        <a href="/objektif/{{ $b->id }}" class="btn btn-primary mr-2">Objektif</a>
-                        <a href="/checkup/{{ $b->id }}" class="btn btn-primary mr-2">Chekup</a>
-
+                        <div class="col-md-3">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Data
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/subjektif/{{ $b->id }}" class="dropdown-item">Subjektif</a>
+                                </li>
+                                <li><a href="/objektif/{{ $b->id }}" class="dropdown-item">Objektif</a></li>
+                                <li><a href="/checkup/{{ $b->id }}" class="dropdown-item">Chekup</a></li>
+                            </ul>
+                        </div>
                     </td>
                 </tr>
             @endforeach

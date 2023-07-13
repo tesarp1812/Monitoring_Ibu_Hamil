@@ -10,7 +10,7 @@
                 <h3 class="text-center">welcome, {{ auth()->user()->name }}</h3>
                 <div class="text-center">
                     <a class="btn btn-primary" href="/jadwal">Cek Jadwal</a>
-                    <a class="btn btn-primary" href="/jadwal">Data Pasien</a>
+                    <a class="btn btn-primary" href="/biodata">Data Pasien</a>
                 </div>
             </div>
         </div>
