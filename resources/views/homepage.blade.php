@@ -26,7 +26,7 @@
                 membawa kebahagiaan dan kepastian bagi kesehatan ibu dan janin. Jadilah ibu hebat yang selalu
                 memprioritaskan perawatan dan perhatian khusus.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a class="btn btn-primary btn-lg px-4 gap-3" href="{{ 'jadwal' }}">Cek Jadwal Check UP</a>
+                <a class="btn btn-primary btn-lg px-4 gap-3" href="">Cek Jadwal Kunjugangan</a>
                 {{-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> --}}
             </div>
         </div>

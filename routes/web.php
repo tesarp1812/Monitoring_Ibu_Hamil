@@ -33,7 +33,7 @@ Route::get('/', function () {
 Route::get('/jadwal', function () {
     return view('jadwal', [
         'title' => "jadwal"
-    ]);
+    ])->middleware('auth');
 });
 
 //about page
