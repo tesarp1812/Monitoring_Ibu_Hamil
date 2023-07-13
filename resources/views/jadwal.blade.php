@@ -14,21 +14,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($date as $c)
                     <tr>
-                        <td>Mark</td>
-                        <td>16-06-2023</td>
-                        <td>23-06-2023</td>
+                        <td>{{$c->biodata->nama}}</td>
+                        <td>{{$c->tgl}}</td>
+                        <td>{{$c->jadwal_kembali}}</td>
                     </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>17-06-2023</td>
-                        <td>23-06-2023</td>
-                    </tr>
-                    <tr>
-                        <td>Larry the Bird</td>
-                        <td>17-06-2023</td>
-                        <td>23-06-2023</td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -45,21 +37,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($dateTomorrow as $dt)
                     <tr>
-                        <td>Mark</td>
-                        <td>16-06-2023</td>
-                        <td>24-06-2023</td>
+                        <td>{{$dt->biodata->nama}}</td>
+                        <td>{{$dt->tgl}}</td>
+                        <td>{{$dt->jadwal_kembali}}</td>
                     </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>17-06-2023</td>
-                        <td>24-06-2023</td>
-                    </tr>
-                    <tr>
-                        <td>Larry the Bird</td>
-                        <td>17-06-2023</td>
-                        <td>24-06-2023</td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
