@@ -10,7 +10,7 @@ class loginController extends Controller
 
     public function index()
     {
-        return view('login', [
+        return view('/login', [
             'title' => 'Login',
         ]);
     }
@@ -18,12 +18,20 @@ class loginController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email:dns'],
-            'password' => ['required']
+            'email' => 'required|email:dns',
+            'password' => 'required',
         ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/dashboard');
+        }
+
+        return back()->with('loginError', 'login failed');
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         Auth::logout();
         request()->session()->invalidate();

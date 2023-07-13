@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\SubjektifController;
 use App\Http\Controllers\ObjektifController;
@@ -27,10 +28,6 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::get('/login', function () {
-//     return view('login');
-// });
-
 //jadwal page
 Route::get('/jadwal', function () {
     return view('jadwal', [
@@ -45,17 +42,20 @@ Route::get('/about', function () {
     ]);
 });
 
+//route Logincontroller || sistem login
+Route::controller(loginController::class)->group(function () {
+    Route::get('/login', 'index');
+    Route::post('/login', 'authenticate');
+    Route::post('/logout', 'logout');
+});
 
-//route Authcontroller || sistem login
-Route::controller(AuthController::class)->group(function () {
-    Route::get('/login', 'showLoginForm')->middleware('guest');
-    Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/logout', [AuthController::class, 'logout']);
+//route Dashboard
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/dashboard', 'index');
 });
 
 
 //route Biodatacontroller
-// Route::resource('biodata', BiodataController::class);
 Route::controller(BiodataController::class)->group(function () {
     Route::get('/biodata', 'index');
     //tambah data
@@ -73,7 +73,6 @@ Route::controller(BiodataController::class)->group(function () {
 });
 
 //subjektif routes
-// Route::resource('subjektif', SubjektifController::class);
 Route::controller(SubjektifController::class)->group(function () {
     Route::get('/subjektif/{id}', 'index');
     //tambah data
@@ -87,7 +86,6 @@ Route::controller(SubjektifController::class)->group(function () {
 });
 
 //objektif routes
-//Route::resource('objektif', ObjektifController::class);
 Route::controller(objektifController::class)->group(function () {
     //tampil view objektif
     Route::get('/objektif/{id}', 'index');
