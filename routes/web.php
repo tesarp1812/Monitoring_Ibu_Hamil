@@ -11,6 +11,7 @@ use App\Http\Controllers\ObjektifController;
 use App\Http\Controllers\CheckupController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\HamilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,4 +113,9 @@ Route::controller(CheckupController::class)->group(function () {
 Route::controller(JadwalController::class)->group(function () {
     Route::get('/jadwal', 'index');
     //Route::get('/jadwal', 'jadwal');
+});
+
+Route::controller(HamilController::class)->group(function () {
+    Route::get('/hamil', 'index');
+    Route::get('/cek', 'biodata');
 });
