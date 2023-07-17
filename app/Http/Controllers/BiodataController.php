@@ -14,7 +14,7 @@ class BiodataController extends Controller
     public function index()
     {
         //
-        $biodata = Biodata::paginate(10);
+        $biodata = Biodata::with('subjektif')->paginate(10);
         //dd($biodata);
         return view('biodata', compact('biodata'));
     }
