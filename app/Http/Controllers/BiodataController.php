@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Biodata;
-use Illuminate\View\View;
+use DateTime;
+use DateInterval;
 
 class BiodataController extends Controller
 {
@@ -14,8 +15,30 @@ class BiodataController extends Controller
     public function index()
     {
         //
-        $biodata = Biodata::paginate(10);
+        $biodata = Biodata::with('subjektif')->paginate(10);
         //dd($biodata);
+
+        foreach ($biodata as $data) {
+            $subjektif = $data->subjektif;
+    
+            if ($subjektif) {
+                $tglHPHT = $subjektif->HPHT;
+    
+                // Konversi HPHT ke objek DateTime
+                $tglHPHTDate = DateTime::createFromFormat('Y-m-d', $tglHPHT);
+    
+                // Tambahkan 280 hari ke HPHT untuk perkiraan lahir (HPL)
+                $hpl = $tglHPHTDate->add(new DateInterval('P280D'));
+    
+                // Format tanggal perkiraan lahir (HPL)
+                $hplFormat = $hpl->format('Y-m-d');
+                //dd($hplFormat);
+    
+                // Tambahkan data HPL ke objek subjektif
+                $subjektif->HPL = $hplFormat;
+            }
+        }
+    
         return view('biodata', compact('biodata'));
     }
 
