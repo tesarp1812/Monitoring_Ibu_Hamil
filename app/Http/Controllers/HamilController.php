@@ -34,7 +34,6 @@ class HamilController extends Controller
 
             $perkiraanLahir[] = [
                 'biodata_id' => $subjektif->biodata_id,
-                'nama' => $namaPasien,
                 'hpht' => $tglHPHT,
                 'hpl' => $hplFormat,
             ];
@@ -45,8 +44,30 @@ class HamilController extends Controller
 
     function biodata()
     {
-        $cek = Biodata::with('subjektif')->get();
-        //dd($cek);
-        return view('/cek', compact('cek'));
+        $biodata = Biodata::with('subjektif')->get();
+        //dd($biodata);
+    
+        foreach ($biodata as $data) {
+            $subjektif = $data->subjektif;
+    
+            if ($subjektif) {
+                $tglHPHT = $subjektif->HPHT;
+    
+                // Konversi HPHT ke objek DateTime
+                $tglHPHTDate = DateTime::createFromFormat('Y-m-d', $tglHPHT);
+    
+                // Tambahkan 280 hari ke HPHT untuk perkiraan lahir (HPL)
+                $hpl = $tglHPHTDate->add(new DateInterval('P280D'));
+    
+                // Format tanggal perkiraan lahir (HPL)
+                $hplFormat = $hpl->format('Y-m-d');
+                //dd($hplFormat);
+    
+                // Tambahkan data HPL ke objek subjektif
+                $subjektif->HPL = $hplFormat;
+            }
+        }
+    
+        return view('cek', compact('biodata'));
     }
 }
