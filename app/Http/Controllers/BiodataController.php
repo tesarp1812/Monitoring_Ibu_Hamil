@@ -9,6 +9,14 @@ use DateInterval;
 
 class BiodataController extends Controller
 {
+    // Fungsi untuk menghitung HPL
+    private function hitungHPL($tglHPHT)
+    {
+        $tglHPHTDate = DateTime::createFromFormat('Y-m-d', $tglHPHT);
+        $hpl = $tglHPHTDate->add(new DateInterval('P280D'));
+        return $hpl->format('Y-m-d');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -20,25 +28,13 @@ class BiodataController extends Controller
 
         foreach ($biodata as $data) {
             $subjektif = $data->subjektif;
-    
             if ($subjektif) {
                 $tglHPHT = $subjektif->HPHT;
-    
-                // Konversi HPHT ke objek DateTime
-                $tglHPHTDate = DateTime::createFromFormat('Y-m-d', $tglHPHT);
-    
-                // Tambahkan 280 hari ke HPHT untuk perkiraan lahir (HPL)
-                $hpl = $tglHPHTDate->add(new DateInterval('P280D'));
-    
-                // Format tanggal perkiraan lahir (HPL)
-                $hplFormat = $hpl->format('Y-m-d');
-                //dd($hplFormat);
-    
-                // Tambahkan data HPL ke objek subjektif
+                $hplFormat = $this->hitungHPL($tglHPHT);
                 $subjektif->HPL = $hplFormat;
             }
         }
-    
+
         return view('biodata', compact('biodata'));
     }
 
@@ -91,10 +87,31 @@ class BiodataController extends Controller
      */
     public function show($id)
     {
-        //
-        $biodata = Biodata::with('subjektif')->where('id', $id)->first();
-        // dd($biodata);
-        return view('profil_biodata', compact('biodata'));
+        $biodata = Biodata::with(['subjektif', 'checkup'])->find($id);
+
+        if ($biodata) {
+            $subjektif = $biodata->subjektif;
+            if ($subjektif) {
+                $tglHPHT = $subjektif->HPHT;
+                $hplFormat = $this->hitungHPL($tglHPHT);
+                $subjektif->hpl = $hplFormat;
+            }
+
+            $checkupData = [];
+            if ($biodata->checkup) {
+                // Ambil data checkup berat badan dan tanggal
+                foreach ($biodata->checkup as $checkup) {
+                    $checkupData[] = [
+                        'berat' => $checkup->berat
+                    ];
+                    //dd($checkupData);
+                }
+            }
+
+            return view('profil_biodata', compact('biodata', 'checkupData'));
+        } else {
+            abort(404); // Data biodata tidak ditemukan, tampilkan halaman 404
+        }
     }
 
     /**

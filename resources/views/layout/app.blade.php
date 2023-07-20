@@ -23,13 +23,13 @@
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
-                <li><a href="/jadwal" class="nav-link px-2 link-dark">Cek Jadwal</a></li>
+                <li><a href="/jadwal_kunjung" class="nav-link px-2 link-dark">Jadwal Kunjungan</a></li>
+                <li><a href="/about" class="nav-link px-2 link-dark">Tips Kesehatan</a></li>
                 @auth
                     @if (auth()->user()->role === 'admin')
-                        <li><a href="/biodata" class="nav-link px-2 link-dark">Data</a></li>
+                        <li><a href="/dashboard" class="nav-link px-2 link-dark">Dashboard</a></li>
                     @endif
                 @endauth
-                <li><a href="/about" class="nav-link px-2 link-dark">About</a></li>
             </ul>
 
             <div class="col-md-3">
@@ -40,6 +40,8 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="/jadwal" class="nav-link px-2 link-dark">Cek Jadwal</a></li>
+                        <li><a class="dropdown-item" href="/biodata" class="nav-link px-2 link-dark">Data</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

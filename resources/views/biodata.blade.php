@@ -28,7 +28,6 @@
                 <th scope="col">nomer telpon</th>
                 <th scope="col">nama suami</th>
                 <th scope="col">nomer suami</th>
-                <th scope="col">HPHT</th>
                 <th scope="col">HPL</th>
                 <th scope="col">Aksi</th>
                 <th scope="col">Data Pasien</th>
@@ -44,8 +43,7 @@
                     <td scope="col">(+62) {{ $b->nomer_tlpn }}</td>
                     <td scope="col">{{ $b->nama_suami }}</td>
                     <td scope="col">(+62) {{ $b->nomer_suami }}</td>
-                    <td scope="col">{{ $b->subjektif->HPHT }}</td>
-                    <td scope="col">{{$b->subjektif->HPL}}</td>
+                    <td scope="col">{{ $b->subjektif->HPL ?? '' }}</td>
                     <td scope="col">
                         <ul class="nav">
                             <form onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');"

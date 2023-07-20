@@ -11,8 +11,7 @@
                 real-time. Kami berkomitmen untuk memberikan perawatan terbaik dan informasi yang dibutuhkan agar Anda
                 dapat menjalani kehamilan dengan tenang dan penuh kebahagiaan</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                {{-- <a class="btn btn-primary btn-lg px-4 gap-3" href="{{ 'checkup' }}">Cek Jadwal Check UP</a> --}}
-                {{-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> --}}
+                <a class="btn btn-primary btn-lg px-4 gap-3" href="/about">Tips Kesehatan</a>
             </div>
         </div>
     </div>
@@ -26,7 +25,7 @@
                 membawa kebahagiaan dan kepastian bagi kesehatan ibu dan janin. Jadilah ibu hebat yang selalu
                 memprioritaskan perawatan dan perhatian khusus.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a class="btn btn-primary btn-lg px-4 gap-3" href="">Cek Jadwal Kunjugangan</a>
+                <a class="btn btn-primary btn-lg px-4 gap-3" href="/jadwal_kunjung">Cek Jadwal kunjungan</a>
                 {{-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> --}}
             </div>
         </div>

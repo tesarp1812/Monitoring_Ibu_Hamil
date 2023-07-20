@@ -39,7 +39,14 @@ Route::get('/jadwal', function () {
 //about page
 Route::get('/about', function () {
     return view('about', [
-        'title' => 'jadwal'
+        'title' => 'about'
+    ]);
+});
+
+//jadwal kunjungan page
+Route::get('/jadwal_kunjung', function () {
+    return view('jadwal_kunjung', [
+        'title' => 'jadwal kunjung'
     ]);
 });
 
