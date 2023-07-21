@@ -1,4 +1,5 @@
 @extends('layout.app')
+
 @section('content')
     <div class="card-footer text-muted">
         <a href="/biodata" class="btn btn-primary">Kembali</a>
@@ -8,9 +9,8 @@
             Biodata Pasien
         </div>
         <div class="card-body">
-
             <div class="row">
-                <div class="col-sm-6 ">
+                <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-header bg-info">Pasien</h5>
@@ -46,19 +46,18 @@
         </div>
     </div>
 
+    <!-- Tambahkan bagian untuk menampilkan grafik berat badan menggunakan Chart.js -->
     <div class="card text-center">
         <div class="card-header bg-info">
             Data Pasien
         </div>
         <div class="card-body">
-
             <div class="row">
                 <div class="col-sm-6">
                     <h3>HPHT</h3>
-                    <h4>{{ $biodata->subjektif->HPHT }}</h3>
-                        <h3>HPL</h3>
-                        <h4>{{ $biodata->subjektif->hpl }}</h4>
-
+                    <h4>{{ $biodata->subjektif->HPHT }}</h4>
+                    <h3>HPL</h3>
+                    <h4>{{ $biodata->subjektif->hpl }}</h4>
                 </div>
                 <div class="col-sm-6">
                     <!-- Tambahkan elemen canvas untuk menampilkan grafik -->
@@ -74,26 +73,31 @@
     <!-- Tambahkan script untuk menggambar grafik -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Ambil data checkup berat badan dan tanggal
-        const checkupData = @json($checkupData);
-        const beratData = checkupData.map(data => data.berat);
-        const tanggalData = checkupData.map(data => data.tanggal);
+        // Data dari Laravel PHP (gunakan data yang dihasilkan dari server)
+        var berat = @json($checkupData);
+        var tgl = @json($tgl);
 
-        // Buat grafik berat badan menggunakan Chart.js
+        // Chart.js Line Chart Data
+        const chartData = {
+            labels: tgl,
+            datasets: [{
+                label: 'Berat Badan',
+                data: berat,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+                fill: false,
+            }]
+        };
+
+        // Get the canvas element
         const ctx = document.getElementById('beratBadanChart').getContext('2d');
-        new Chart(ctx, {
+
+        // Create the line chart
+        const lineChart = new Chart(ctx, {
             type: 'line',
-            data: {
-                labels: tanggalData,
-                datasets: [{
-                    label: 'Berat Badan',
-                    data: beratData,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 2,
-                    fill: false,
-                }]
-            },
+            data: chartData,
             options: {
+                responsive: false,
                 scales: {
                     y: {
                         beginAtZero: true

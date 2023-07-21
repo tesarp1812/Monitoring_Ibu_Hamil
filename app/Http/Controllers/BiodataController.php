@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Biodata;
+use App\Models\checkup;
+use Illuminate\Support\Carbon;
 use DateTime;
 use DateInterval;
 
@@ -97,18 +99,18 @@ class BiodataController extends Controller
                 $subjektif->hpl = $hplFormat;
             }
 
-            $checkupData = [];
-            if ($biodata->checkup) {
-                // Ambil data checkup berat badan dan tanggal
-                foreach ($biodata->checkup as $checkup) {
-                    $checkupData[] = [
-                        'berat' => $checkup->berat
-                    ];
-                    //dd($checkupData);
-                }
-            }
+            $checkupData = Checkup::where('biodata_id', $id)->pluck('berat');
+            //dd($checkupData);
 
-            return view('profil_biodata', compact('biodata', 'checkupData'));
+            $tanggal = Checkup::where('biodata_id', $id)->pluck('tgl');
+            //dd($tgl);
+
+            $tgl = $tanggal->map(function ($date) {
+                return Carbon::parse($date)->translatedFormat('d-m-Y');
+            });
+            //dd($tgl);
+
+            return view('profil_biodata', compact('biodata', 'checkupData', 'tgl'));
         } else {
             abort(404); // Data biodata tidak ditemukan, tampilkan halaman 404
         }

@@ -43,12 +43,6 @@ Route::get('/about', function () {
     ]);
 });
 
-//jadwal kunjungan page
-Route::get('/jadwal_kunjung', function () {
-    return view('jadwal_kunjung', [
-        'title' => 'jadwal kunjung'
-    ]);
-});
 
 //route Logincontroller || sistem login
 Route::controller(loginController::class)->group(function () {
@@ -60,6 +54,7 @@ Route::controller(loginController::class)->group(function () {
 //route Dashboard
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard', 'index')->middleware('auth');
+    Route::get('/grafik', 'grafik');
 });
 
 
@@ -118,5 +113,8 @@ Route::controller(CheckupController::class)->group(function () {
 //jadwal routes
 Route::controller(JadwalController::class)->group(function () {
     Route::get('/jadwal', 'index');
-    //Route::get('/jadwal', 'jadwal');
+    Route::get('/jadwal_kunjung', 'jadwal');
+    //edit jadwal
+    Route::get('/edit_jadwal/{id}', 'edit');
+    Route::put('/edit_jadwal/update/{id}', 'update');
 });
