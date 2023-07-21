@@ -112,9 +112,9 @@ Route::controller(CheckupController::class)->group(function () {
 
 //jadwal routes
 Route::controller(JadwalController::class)->group(function () {
-    Route::get('/jadwal', 'index');
+    Route::get('/jadwal', 'index')->middleware('auth');
     Route::get('/jadwal_kunjung', 'jadwal');
     //edit jadwal
-    Route::get('/edit_jadwal/{id}', 'edit');
-    Route::put('/edit_jadwal/update/{id}', 'update');
+    Route::get('/edit_jadwal/{id}', 'edit')->middleware('auth');
+    Route::put('/edit_jadwal/update/{id}', 'update')->middleware('auth');
 });

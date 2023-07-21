@@ -63,6 +63,7 @@
                     </ul>
 
                     <input type="submit" value="Ubah Data" class="btn btn-success">
+                    <a class="btn btn-danger" href="/jadwal_kunjung">Tutup Form</a>
                 </form>
             </div>
         </div>

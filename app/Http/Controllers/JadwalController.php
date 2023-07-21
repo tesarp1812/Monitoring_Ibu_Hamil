@@ -55,6 +55,6 @@ class JadwalController extends Controller
         $jadwal->jam2 = $request->inputjam2;
         $jadwal->lokasi = $request->inputlok;
         $jadwal->save();
-        return redirect('/jadwal_kunjung');
+        return redirect('/jadwal_kunjung')->with(['success' => 'Data Berhasil Diubah!']);
     }
 }
