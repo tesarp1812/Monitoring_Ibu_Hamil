@@ -50,8 +50,7 @@
                                 action="/biodata/delete/{{ $b->id }}" method="POST">
                                 <a scope="col" href="/biodata/edit/{{ $b->id }}"
                                     class="btn btn-primary mr-2">Edit</a>
-                                <a scope="col" href="/biodata/show/{{ $b->id }}"
-                                    class="btn btn-secondary">Show</a>
+                                <a scope="col" href="/biodata/show/{{ $b->id }}" class="btn btn-info">Data</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Hapus</button>

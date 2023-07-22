@@ -1,109 +1,158 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="card-footer text-muted">
-        <a href="/biodata" class="btn btn-primary">Kembali</a>
-    </div>
-    <div class="card text-center">
-        <div class="card-header bg-info">
-            Biodata Pasien
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-header bg-info">Pasien</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Nama : {{ $biodata->nama }} </h5>
-                                <h5 class="card-title">Umur : {{ $biodata->umur }} </h5>
-                                <h5 class="card-title">Agama : {{ $biodata->agama }} </h5>
-                                <h5 class="card-title">pendidikan : {{ $biodata->pendidikan }} </h5>
-                                <h5 class="card-title">pekerjaan : {{ $biodata->pekerjaan }} </h5>
-                                <h5 class="card-title">alamat : {{ $biodata->alamat }} </h5>
-                                <h5 class="card-title">nomer telpon : {{ $biodata->nomer_tlpn }} </h5>
+    <div class="container">
+        <div class="row">
+            <!-- Card Biodata -->
+            <div class="col-md-6">
+                <div class="card" style="width: 30rem;">
+                    <div class="card-header">
+                        Biodata Pasien
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3 row">
+                            <div class="mb-3 row">
+                                <label class="col-sm-5 col-form-label">Nama</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->nama }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Umur</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->umur }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Agama</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->agama }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Pendidikan</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->pendidikan }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Pekerjaan</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->pekerjaan }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Alamat</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->alamat }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Nomer Telpon</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->nomer_tlpn }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Nama Suami</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->nama_suami }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Umur Suami</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->umur_suami }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Agama</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->agama_suami }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Pendidikan</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->pendidikan_suami }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Pekerjaan</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->pekerjaan_suami }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Alamat</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->alamat_suami }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">Nomer Telpon Suami</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->nomer_suami }}</label>
+                                </div>
                             </div>
                         </div>
+                        <a href="/biodata/edit/{{ $biodata->id }}" class="btn btn-primary">Edit</a>
+                        <a href="/biodata" class="btn btn-secondary">Kembali</a>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-header bg-info">Suami</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Nama : {{ $biodata->nama_suami }} </h5>
-                                <h5 class="card-title">Umur : {{ $biodata->umur_suami }} </h5>
-                                <h5 class="card-title">Agama : {{ $biodata->agama_suami }} </h5>
-                                <h5 class="card-title">pendidikan : {{ $biodata->pendidikan_suami }} </h5>
-                                <h5 class="card-title">pekerjaan : {{ $biodata->pekerjaan_suami }} </h5>
-                                <h5 class="card-title">alamat : {{ $biodata->alamat_suami }} </h5>
-                                <h5 class="card-title">nomer telpon : {{ $biodata->nomer_suami }} </h5>
+            </div>
+
+            <!-- Card Lainnya -->
+            <div class="col-md-6">
+                <div class="card" style="width: 30rem;">
+                    <div class="card-header">
+                        Data Perkembangan Pasien
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3 row">
+                            <div class="mb-3 row">
+                                <label class="col-sm-5 col-form-label">HPHT</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->subjektif->HPHT ?? '' }}</label>
+                                </div>
+
+                                <label class="col-sm-5 col-form-label">HPL</label>
+                                <div class="col-sm-5">
+                                    <label class="form-control-plaintext">: {{ $biodata->subjektif->hpl ?? '' }}</label>
+                                </div>
+
+                                <!-- Tambahkan elemen canvas untuk menampilkan grafik -->
+                                <label class="col-sm-5 col-form-label">Grafik Berat Badan</label>
+                                <canvas id="beratBadanChart" width="400" height="200"></canvas>
                             </div>
                         </div>
+                        <a href="/checkup/{{ $biodata->id }}" class="btn btn-primary">Checkup</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Tambahkan bagian untuk menampilkan grafik berat badan menggunakan Chart.js -->
-    <div class="card text-center">
-        <div class="card-header bg-info">
-            Data Pasien
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3>HPHT</h3>
-                    <h4>{{ $biodata->subjektif->HPHT }}</h4>
-                    <h3>HPL</h3>
-                    <h4>{{ $biodata->subjektif->hpl }}</h4>
-                </div>
-                <div class="col-sm-6">
-                    <!-- Tambahkan elemen canvas untuk menampilkan grafik -->
-                    <canvas id="beratBadanChart" width="400" height="200"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="card-footer text-muted">
-            <a href="/biodata" class="btn btn-primary">Kembali</a>
-        </div>
-    </div>
+        <!-- Tambahkan script untuk menggambar grafik -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            // Data dari Laravel PHP (gunakan data yang dihasilkan dari server)
+            var berat = @json($checkupData);
+            var tgl = @json($tgl);
 
-    <!-- Tambahkan script untuk menggambar grafik -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        // Data dari Laravel PHP (gunakan data yang dihasilkan dari server)
-        var berat = @json($checkupData);
-        var tgl = @json($tgl);
+            // Chart.js Line Chart Data
+            const chartData = {
+                labels: tgl,
+                datasets: [{
+                    label: 'Berat Badan',
+                    data: berat,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false,
+                }]
+            };
 
-        // Chart.js Line Chart Data
-        const chartData = {
-            labels: tgl,
-            datasets: [{
-                label: 'Berat Badan',
-                data: berat,
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 2,
-                fill: false,
-            }]
-        };
+            // Get the canvas element
+            const ctx = document.getElementById('beratBadanChart').getContext('2d');
 
-        // Get the canvas element
-        const ctx = document.getElementById('beratBadanChart').getContext('2d');
-
-        // Create the line chart
-        const lineChart = new Chart(ctx, {
-            type: 'line',
-            data: chartData,
-            options: {
-                responsive: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
+            // Create the line chart
+            const lineChart = new Chart(ctx, {
+                type: 'line',
+                data: chartData,
+                options: {
+                    responsive: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
-    </script>
-@endsection
+            });
+        </script>
+    @endsection

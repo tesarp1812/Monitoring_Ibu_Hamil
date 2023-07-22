@@ -3,8 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col">
+                <a href="{{ URL::previous() }}" class="btn btn-secondary">Kembali</a>
                 <a href="/checkup/create/{{ $biodata_id }}" class="btn btn-primary">Tambah Data</a>
-                <a href="/biodata" class="btn btn-primary">Kembali</a>
+                <a href="/biodata" class="btn btn-primary">Halaman Pasien</a>
             </div>
         </div>
     </div>

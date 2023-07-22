@@ -11,7 +11,6 @@
             <p class="lead">Dalam periode kehamilan, kesehatan ibu hamil perlu dijaga dengan baik. Penting untuk
                 mengonsumsi makanan bergizi, beristirahat cukup, dan mengikuti anjuran dari dokter kandungan. Selain itu,
                 periksakan secara rutin ke dokter untuk memantau perkembangan janin dan kesehatan ibu.</p>
-
         </div>
         <div class="col-md-5">
             <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
@@ -22,6 +21,9 @@
                     dy=".3em">500x500</text>
             </svg>
 
+        </div>
+        <div class="col-md-5 offset-md-1 mt-3">
+            <a class="btn btn-primary btn-lg px-4 gap-3" href="">Baca Selengkapnya</a>
         </div>
     </div>
 
@@ -42,8 +44,8 @@
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa"
                     dy=".3em">500x500</text>
-            </svg>
 
+            </svg>
         </div>
     </div>
 
@@ -66,6 +68,9 @@
                     dy=".3em">500x500</text>
             </svg>
 
+        </div>
+        <div class="col-md-5 offset-md-1 mt-3">
+            <a class="btn btn-primary btn-lg px-4 gap-3" href="">Baca Selengkapnya</a>
         </div>
     </div>
 

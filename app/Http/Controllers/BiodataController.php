@@ -123,7 +123,7 @@ class BiodataController extends Controller
     {
         //mengambil data
         $biodata = Biodata::where('id', $id)->first();
-        // dd($biodata);
+        //dd($biodata);
         // passing data ke view
         return view('form_ubah_biodata', ['biodata' => $biodata]);
     }
