@@ -8,7 +8,7 @@ use App\Models\Biodata;
 use Illuminate\View\View;
 
 class ObjektifController extends Controller
-{           
+{
     /**
      * Display a listing of the resource.
      */
@@ -63,7 +63,7 @@ class ObjektifController extends Controller
             'eks_bawah' => $request->inputeks_bawah,
         ]);
 
-        return redirect('/objektif/' . $request->input('inputbiodata'))->with('success', 'Data Objektif``` berhasil disimpan.');
+        return redirect('/objektif/' . $request->input('inputbiodata'))->with(['success' => 'Data berhasil Disimpan']);
     }
 
     /**
@@ -117,7 +117,7 @@ class ObjektifController extends Controller
         $objektif->eks_atas = $request->inputeks_atas;
         $objektif->eks_bawah = $request->inputeks_bawah;
         $objektif->save();
-        return redirect('/objektif/' . $objektif->biodata_id);
+        return redirect('/objektif/' . $objektif->biodata_id)->with(['edit' => 'Data Telah Diubah']);
     }
 
     /**
@@ -128,6 +128,6 @@ class ObjektifController extends Controller
         // hapus data
         $objektif = Objektif::findOrFail($id);
         $objektif->delete();
-        return redirect('/objektif/' . $objektif->id);
+        return redirect('/objektif/' . $objektif->id)->with(['delete' => 'Data Telah Dihapus']);
     }
 }

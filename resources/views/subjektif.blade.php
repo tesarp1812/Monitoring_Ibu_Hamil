@@ -8,6 +8,25 @@
     </form>
 
     <div class="container">
+        <div style="width:20%">
+            @if (session('success'))
+                <div class="alert alert-info ">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('edit'))
+                <div class="alert alert-info ">
+                    {{ session('edit') }}
+                </div>
+            @endif
+
+            @if (session('delete'))
+                <div class="alert alert-danger ">
+                    {{ session('delete') }}
+                </div>
+            @endif
+        </div>
         <div class="card" style="width:70%">
             <h5 class="card-header bg-info">Data Subjektif</h5>
             <div class="card-body">
@@ -95,7 +114,7 @@
                             action="/subjektif/delete/{{ $subjek->id }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            {{-- <button type="submit" class="btn btn-danger">Hapus</button> --}}
                             <a scope="col" href="/subjektif/edit/{{ $subjek->biodata_id ?? '' }}"
                                 class="btn btn-primary mr-2">Edit</a>
                         </form>

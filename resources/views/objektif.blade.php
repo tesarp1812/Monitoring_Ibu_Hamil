@@ -11,6 +11,25 @@
         </div>
     </div>
     <div class="container">
+        <div style="width:20%">
+            @if (session('success'))
+                <div class="alert alert-info ">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('edit'))
+                <div class="alert alert-info ">
+                    {{ session('edit') }}
+                </div>
+            @endif
+
+            @if (session('delete'))
+                <div class="alert alert-danger ">
+                    {{ session('delete') }}
+                </div>
+            @endif
+        </div>
         <div class="card-body" style="width: 70%">
             <h5 class="card-header bg-info">Data Objektif</h5>
             <div class="card-body">

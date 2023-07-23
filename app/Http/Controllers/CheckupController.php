@@ -52,7 +52,7 @@ class CheckupController extends Controller
             'jadwal_kembali' => $request->inputjadwal,
         ]);
 
-        return redirect('/checkup/' . $request->inputbiodata);
+        return redirect('/checkup/' . $request->inputbiodata)->with(['success' => 'Data Berhasil Disimpan']);
     }
 
     /**

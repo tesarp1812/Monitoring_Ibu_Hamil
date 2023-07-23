@@ -1,6 +1,25 @@
 @extends('layout.app')
 @section('content')
     <div class="container">
+        <div style="width:20%">
+            @if (session('success'))
+                <div class="alert alert-info ">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('edit'))
+                <div class="alert alert-info ">
+                    {{ session('edit') }}
+                </div>
+            @endif
+
+            @if (session('delete'))
+                <div class="alert alert-danger ">
+                    {{ session('delete') }}
+                </div>
+            @endif
+        </div>
         <div class="row">
             <div class="col">
                 <a href="{{ URL::previous() }}" class="btn btn-secondary">Kembali</a>

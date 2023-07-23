@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class SubjektifController extends Controller
 {
 
-    
+
 
     /**
      * Display a listing of the resource.
@@ -57,7 +57,7 @@ class SubjektifController extends Controller
             'riwayat_kb' => $request->inputriwayat_kb,
         ]);
 
-        return redirect('/subjektif/' . $request->input('inputbiodata'));
+        return redirect('/subjektif/' . $request->input('inputbiodata'))->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -109,7 +109,7 @@ class SubjektifController extends Controller
         $subjektif->riwayat_kehamilan = $request->inputriwayat_kehamilan;
         $subjektif->riwayat_kb = $request->inputriwayat_kb;
         $subjektif->save();
-        return redirect('/subjektif/' . $subjektif->biodata_id);
+        return redirect('/subjektif/' . $subjektif->biodata_id)->with(['edit' => 'Data Telah Diubah']);
     }
 
     /**
@@ -129,6 +129,6 @@ class SubjektifController extends Controller
     public function back($id)
     {
         $subjektif = Subjektif::where('id', $id)->first();
-        return redirect('profil_biodata', compact('subjektif'));
+        return redirect('profil_biodata', compact('subjektif'))->with(['delete' => 'Data Telah DiHapus']);
     }
 }
