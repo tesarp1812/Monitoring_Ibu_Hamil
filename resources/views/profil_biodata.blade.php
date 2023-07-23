@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <!-- Card Biodata -->
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="card" style="width: 30rem;">
                     <div class="card-header">
                         Biodata Pasien

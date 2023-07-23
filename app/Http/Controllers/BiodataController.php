@@ -55,13 +55,6 @@ class BiodataController extends Controller
     public function store(Request $request)
     {
         //validate the request
-        // $request->validate([
-        //     'nama' => 'required|min:4',
-        //     'umur' => 'required|numeric|max:2',
-        //     'nomer_tlpn' => 'required|numeric|min:8|max:15',
-        //     'umur_suami' => 'required|numeric|max:2',
-        //     'nomer_suami' => 'required|numeric|min:8|max:15',
-        // ]);
 
         //tambah data
         Biodata::create([
@@ -150,7 +143,7 @@ class BiodataController extends Controller
         $biodata->alamat_suami = $request->inputalamat_suami;
         $biodata->nomer_suami = $request->inputnomer_suami;
         $biodata->save();
-        return redirect('/biodata');
+        return redirect('/biodata')->with(['edit' => 'Data Telah Diubah']);
     }
 
     /**
@@ -162,7 +155,7 @@ class BiodataController extends Controller
         $biodata = Biodata::findOrFail($id);
         $biodata->delete();
 
-        return redirect('/biodata');
+        return redirect('/biodata')->with(['delete' => 'Data Telah Dihapus']);
     }
 
     public function search(Request $request)
