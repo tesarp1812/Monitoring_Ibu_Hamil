@@ -13,8 +13,15 @@
 
                         <input type="hidden" value="{{ $id }}" name="inputbiodata">
                         Tanggal Checkup <input type="date" name="inputtgl" required>
-                        keluhan <input type="text" name="inputkeluhan" required>
-                        tekanan <input type="number" name="inputtekanan" required>
+                        Keluhan <input type="text" name="inputkeluhan" required>
+                        <div class="col d-flex mt-4">
+                            <div class="mr-2">
+                                Tekanan <input type="number" name="inputtekanan" required>
+                            </div>
+                            <div class="ml-2">
+                                / <input type="number" name="inputtekanan2" required>
+                            </div>
+                        </div>
                         berat <input type="number" name="inputberat" required>
                         tinggi <input type="number" name="inputtinggi" required>
                         letak <input type="text" name="inputletak" required>

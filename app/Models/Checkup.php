@@ -25,6 +25,7 @@ class checkup extends Model
         'tgl',
         'keluhan',
         'tekanan',
+        'tekanan2',
         'berat',
         'tinggi',
         'letak',

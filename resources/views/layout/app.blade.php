@@ -24,7 +24,7 @@
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
                 <li><a href="/jadwal_kunjung" class="nav-link px-2 link-dark">Jadwal Kunjungan</a></li>
-                <li><a href="/about" class="nav-link px-2 link-dark">Tips Kesehatan</a></li>
+                <li><a href="/post" class="nav-link px-2 link-dark">Tips Kesehatan</a></li>
                 @auth
                     @if (auth()->user()->role === 'admin')
                         <li><a href="/dashboard" class="nav-link px-2 link-dark">Dashboard</a></li>

@@ -13,7 +13,14 @@
 
                         <input type="hidden" value="{{ $id }}" name="inputbiodata">
                         kesadaran <input type="text" name="inputkesadaran" required>
-                        tekanan_darah <input type="number" name="inputtekanan_darah" required>
+                        <div class="col d-flex mt-4">
+                            <div class="mr-2">
+                                Tekanan Darah <input type="number" name="inputtekanan_darah" required>
+                            </div>
+                            <div class="ml-2">
+                                / <input type="number" name="inputtekanan2" required>
+                            </div>
+                        </div>
                         suhu <input type="number" name="inputsuhu" required>
                         nadi <input type="number" name="inputnadi" required>
                         respirasi <input type="number" name="inputrespirasi" required>

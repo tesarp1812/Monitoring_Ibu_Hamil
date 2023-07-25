@@ -56,7 +56,7 @@
                     <td>{{ $c->biodata_id }}</td>
                     <td>{{ $c->tgl }}</td>
                     <td>{{ $c->keluhan }}</td>
-                    <td>{{ $c->tekanan }}</td>
+                    <td>{{ $c->tekanan }}/{{ $c->tekanan2 }}</td>
                     <td>{{ $c->berat }} Kg</td>
                     <td>{{ $c->tinggi }} Cm</td>
                     <td>{{ $c->letak }}</td>

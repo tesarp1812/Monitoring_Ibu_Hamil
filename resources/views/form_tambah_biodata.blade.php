@@ -19,7 +19,7 @@
                         Nomer telpon <input type="text" name="inputnomer" required pattern="8[0-9]{7,14}" minlength="8"
                             maxlength="15" title="mohon di isi nomer dengan awalah angka 8 dan minimal 8 digit maksimal 15">
                         Nama suami <input type="text" name="inputnama_suami" required>
-                        Umur suami <input type="number" required min="10" max="99">
+                        Umur suami <input type="number" name="inputumur_suami" required min="10" max="99">
                         Agama suami <input type="text" name="inputagama_suami" required>
                         Pendidikan suami <input type="text" name="inputpendidikan_suami" required>
                         Pekerjaan suami <input type="text" name="inputpekerjaan_suami" required>

@@ -37,14 +37,20 @@
                                         <td><a href="edit_jadwal/{{ $j->id }}">edit</a></td>
                                     @endif
                                 @endauth
-
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                {{-- <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a> --}}
+                <div style="position: relative;">
+                    <a href="https://api.whatsapp.com/send?phone=628123456789" target="_blank"
+                        class="btn btn-success rounded-circle p-" style="position: absolute; bottom: 0px; right: 10px;">
+                        <span> Chat WA</span>
+                        <i class="fab fa-whatsapp fa-lg"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- WhatsApp Chat Button -->
 @endsection

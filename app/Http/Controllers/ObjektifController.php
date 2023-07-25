@@ -39,6 +39,7 @@ class ObjektifController extends Controller
             'biodata_id' => $request->inputbiodata,
             'kesadaran' => $request->inputkesadaran,
             'tekanan_darah' => $request->inputtekanan_darah,
+            'tekanan2' => $request->inputtekanan2,
             'suhu' => $request->inputsuhu,
             'nadi' => $request->inputnadi,
             'respirasi' => $request->inputrespirasi,

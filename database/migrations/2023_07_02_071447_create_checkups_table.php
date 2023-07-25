@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('tgl');
             $table->text('keluhan');
             $table->integer('tekanan');
+            $table->integer('tekanan2');
             $table->integer('berat');
             $table->integer('tinggi');
             $table->text('letak');

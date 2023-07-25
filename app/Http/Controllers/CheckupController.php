@@ -40,6 +40,7 @@ class CheckupController extends Controller
             'tgl' => $request->inputtgl,
             'keluhan' => $request->inputkeluhan,
             'tekanan' => $request->inputtekanan,
+            'tekanan2' => $request->inputtekanan2,
             'berat' => $request->inputberat,
             'tinggi' => $request->inputtinggi,
             'letak' => $request->inputletak,

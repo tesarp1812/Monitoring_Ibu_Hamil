@@ -11,6 +11,7 @@
                 <div class="text-center mt-3">
                     <a class="btn btn-primary mb-3" href="/jadwal">Cek Jadwal</a>
                     <a class="btn btn-primary mx-1 mb-3" href="/biodata">Data Pasien</a>
+                    <a class="btn btn-primary mb-3" href="/admin_post">Postingan</a>
                 </div>
             </div>
         </div>

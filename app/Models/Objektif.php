@@ -28,6 +28,7 @@ class Objektif extends Model
         'biodata_id',
         'kesadaran',
         'tekanan_darah',
+        'tekanan2',
         'suhu',
         'nadi',
         'respirasi',

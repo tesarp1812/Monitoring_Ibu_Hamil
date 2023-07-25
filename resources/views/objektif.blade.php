@@ -41,7 +41,8 @@
 
                     <label class="col-sm-5 col-form-label">Tekanan Darah</label>
                     <div class="col-sm-5">
-                        <label class="col-sm-5 col-form-label">{{ $objek->tekanan_darah ?? '' }}</label>
+                        <label class="col-sm-5 col-form-label">{{ $objek->tekanan_darah ?? '' }} /
+                            {{ $objek->tekanan2 ?? '' }}</label>
                     </div>
 
                     <label class="col-sm-5 col-form-label">Suhu</label>

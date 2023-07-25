@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('biodata_id');
             $table->text('kesadaran');
             $table->integer('tekanan_darah');
+            $table->integer('tekanan2');
             $table->integer('suhu');
             $table->integer('nadi');
             $table->integer('respirasi');

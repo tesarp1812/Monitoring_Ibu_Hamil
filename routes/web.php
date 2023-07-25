@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BiodataController;
@@ -11,6 +10,7 @@ use App\Http\Controllers\ObjektifController;
 use App\Http\Controllers\CheckupController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,12 +36,6 @@ Route::get('/jadwal', function () {
     ]);
 });
 
-//about page
-Route::get('/about', function () {
-    return view('about', [
-        'title' => 'about'
-    ]);
-});
 
 
 //route Logincontroller || sistem login
@@ -117,4 +111,16 @@ Route::controller(JadwalController::class)->group(function () {
     //edit jadwal
     Route::get('/edit_jadwal/{id}', 'edit')->middleware('auth');
     Route::put('/edit_jadwal/update/{id}', 'update')->middleware('auth');
+});
+
+// post routes
+Route::controller(PostController::class)->group(function () {
+    Route::get('/post', 'index');
+    Route::get('/admin_post', 'admin')->middleware('auth');
+    //tambah data
+    Route::get('/tambah_post', 'create')->middleware('auth');
+    Route::post('/post', 'store')->middleware('auth');
+    //edit post
+    Route::get('/post/edit/{id}', 'edit')->middleware('auth');
+    Route::put('/post/update/{id}', 'update')->middleware('auth');
 });
