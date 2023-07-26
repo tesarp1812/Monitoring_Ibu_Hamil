@@ -6,14 +6,37 @@ use App\Charts\GrafikChart;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\checkup;
-use Carbon\Carbon;
+use App\Models\Biodata;
+use Illuminate\Support\Carbon;
+use DateTime;
+use DateInterval;
 
 class DashboardController extends Controller
 {
+    // Fungsi untuk menghitung HPL
+    private function hitungHPL($tglHPHT)
+    {
+        $tglHPHTDate = DateTime::createFromFormat('Y-m-d', $tglHPHT);
+        $hpl = $tglHPHTDate->add(new DateInterval('P280D'));
+        return $hpl->format('Y-m-d');
+    }
+
     //
     public function index()
     {
-        return view('/dashboard');
+        $biodata = Biodata::with('subjektif')->paginate(5);
+        //dd($biodata);
+
+        foreach ($biodata as $data) {
+            $subjektif = $data->subjektif;
+            if ($subjektif) {
+                $tglHPHT = $subjektif->HPHT;
+                $hplFormat = $this->hitungHPL($tglHPHT);
+                $subjektif->HPL = $hplFormat;
+            }
+        }
+
+        return view('/dashboard', compact('biodata'));
     }
 
     public function grafik()
