@@ -34,6 +34,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    // Urutkan data berdasarkan HPL terdekat
+                                    $biodata = $biodata->sortBy(function ($item) {
+                                        return $item->subjektif ? Carbon::createFromFormat('Y-m-d', $item->subjektif->HPL) : Carbon::now();
+                                    });
+                                @endphp
                                 @foreach ($biodata as $b)
                                     <tr>
                                         <td><a href="/biodata/show/{{ $b->id }}">{{ $b->nama }}</a></td>
