@@ -8,15 +8,15 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">{{ $post->judul }} <span class="text-body-secondary"></span>
+                <h2 class="featurette-heading fw-normal lh-1">{{ $post->judul ?? ''}} <span class="text-body-secondary"></span>
                 </h2>
-                <p class="lead">{{ $post->konten }}</p>
+                <p class="lead">{{ $post->konten ?? ''}}</p>
             </div>
             <div class="col-md-5">
-                @if ($post->gambar)
+                @if ($post->gambar ?? '')
                     <div class="image-container">
-                        <img src="{{ asset('storage/post/' . $post->gambar) }}" class="img-fluid"
-                            alt="Gambar {{ $post->judul }}">
+                        <img src="{{ asset('storage/post/' . $post->gambar) ?? ''}}" class="img-fluid"
+                            alt="Gambar {{ $post->judul ?? '' }}">
                     </div>
                 @else
                     <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
@@ -51,15 +51,15 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">{{ $post2->judul }} <span class="text-body-secondary"></span>
+                <h2 class="featurette-heading fw-normal lh-1">{{ $post2->judul ?? '' }} <span class="text-body-secondary"></span>
                 </h2>
-                <p class="lead">{{ $post2->konten }}</p>
+                <p class="lead">{{ $post2->konten ?? ''}}</p>
             </div>
             <div class="col-md-5">
-                @if ($post2->gambar)
+                @if ($post2->gambar ?? '')
                     <div class="image-container">
-                        <img src="{{ asset('storage/post/' . $post2->gambar) }}" class="img-fluid"
-                            alt="Gambar {{ $post->judul }}">
+                        <img src="{{ asset('storage/post/' . $post2->gambar) ?? '' }}" class="img-fluid"
+                            alt="Gambar {{ $post->judul ?? '' }}">
                     </div>
                 @else
                     <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
