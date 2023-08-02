@@ -20,7 +20,7 @@
             </div>
 
             {{-- Card HPL --}}
-            <div class="card-body" style="width: 18rem;">
+            <div class="card-body" style="width: 25rem;">
                 <div class="card mt-4">
                     <div class="card-header">
                         HPL Pasien
