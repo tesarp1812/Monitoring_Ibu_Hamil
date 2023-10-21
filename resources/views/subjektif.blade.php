@@ -72,8 +72,14 @@
 
                         <label class="col-sm-4 col-form-label">HPHT</label>
                         <div class="col-sm-5">
-                            <label
-                                class="col-sm-4 col-form-label">{{ $subjek->HPHT ? Carbon::createFromFormat('Y-m-d', $subjek->HPHT)->format('d-m-Y') : '' }}</label>
+                            <label class="col-sm-4 col-form-label">
+                                @if($subjek && $subjek->HPHT)
+                                    {{ Carbon::createFromFormat('Y-m-d', $subjek->HPHT)->format('d-m-Y') }}
+                                @else
+                                    <!-- Tampilkan pesan jika HPHT tidak ada atau bernilai null -->
+                                    
+                                @endif
+                            </label>
                         </div>
 
                         <label class="col-sm-4 col-form-label">Menarche</label>

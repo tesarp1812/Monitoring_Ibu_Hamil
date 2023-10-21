@@ -104,13 +104,13 @@
                                 <label class="col-sm-5 col-form-label">HPHT</label>
                                 <div class="col-sm-5">
                                     <label class="form-control-plaintext">:
-                                        {{ $biodata->subjektif->HPHT ? Carbon::createFromFormat('Y-m-d', $biodata->subjektif->HPHT)->format('d-m-Y') : '' }}</label>
+                                        {{ $biodata->subjektif ? Carbon::createFromFormat('Y-m-d', $biodata->subjektif->HPHT)->format('d-m-Y') : '' }}</label>
                                 </div>
 
                                 <label class="col-sm-5 col-form-label">HPL</label>
                                 <div class="col-sm-5">
                                     <label class="form-control-plaintext">:
-                                        {{ $biodata->subjektif->hpl ? Carbon::createFromFormat('Y-m-d', $biodata->subjektif->hpl)->format('d-m-Y') : '' }}</label>
+                                        {{ $biodata->subjektif ? Carbon::createFromFormat('Y-m-d', $biodata->subjektif->hpl)->format('d-m-Y') : '' }}</label>
                                 </div>
 
                                 <!-- Tambahkan elemen canvas untuk menampilkan grafik -->
